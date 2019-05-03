@@ -4,7 +4,7 @@ var answerOne = document.triviaQuiz.questionOne.value;
 var answerTwo = document.triviaQuiz.questionTwo.value;
 var answerThree = document.triviaQuiz.questionThree.value;
 var answerFour = document.triviaQuiz.questionFour.value;
-var answerFour = document.triviaQuiz.questionFive.value;
+var answerFive = document.triviaQuiz.questionFive.value;
 var correctAnswer = 0;
 
     if (answerOne == "True"){
@@ -19,17 +19,19 @@ var correctAnswer = 0;
     if (answerFour == "False"){
         correctAnswer++;
     }
+    if (answerFive == "False"){
+        correctAnswer++;
+    }
 
 var popMessage = ["Great job! You did so well!", "May need some practice!"];
 
-var gifsWinLose = ["assets/images/youWin.gif", "assets/images/youLost.gif"];
+var gifWinLose = ["assets/images/youWin.gif", "/assets/images/youLost.gif"];
 
-//NOT SURE HOW TO SET THIS UP
 var scoredQuiz;
-    if (correctAnswer <1){
-        scoredQuiz = 1;
+    if (correctAnswer <3) {
+        scoredQuiz = 2;
     }
-    if (correctAnswer > 0 && correctAnswer <2){
+    else {
         scoredQuiz = 0;
 }
 
@@ -39,7 +41,8 @@ var scoredQuiz;
 
     document.getElementById("answerConfirms").innerHTML= "You got it " + correctAnswer + " correct!";
 
-    document.getElementById("gifsWinLose").src = gifsWinLose[scoredQuiz];
+    document.getElementById("gifWinLose").src = gifWinLose[scoredQuiz];
+
     $("#finButton").attr("disabled", true);
 
 }
