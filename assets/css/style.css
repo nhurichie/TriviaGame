@@ -1,0 +1,49 @@
+/******
+font-family: 'Gugi', cursive;
+
+font-family: 'Raleway', sans-serif; 
+******/
+
+body {
+    font-family: 'Raleway', sans-serif; 
+}
+
+h1 {
+    font-family: 'Gugi', cursive;
+    color: coral;
+    margin-left: 20px;
+    background-color: antiquewhite;
+    padding: 12px 18px 12px 18px;
+    width: 400px;
+    border-radius: 20px;
+    float: left;
+}
+
+h2 {
+    font-family: 'Gugi', cursive;
+    font-size: 12px;
+    font-display: center;
+    text-align: center;
+    color: coral;
+    margin-left: 20px;
+    background-color: antiquewhite;
+    padding: 12px 18px 12px 18px;
+    width: 400px;
+    border-radius: 20px;
+    float: left;
+}
+
+#checkAnswers {
+    visibility: hidden;
+}
+
+#nhuQuiz {
+   margin-left: 20px;
+   border: chocolate;
+   background-color: antiquewhite;
+   padding: 12px 18px 12px 18px;
+   width: 400px;
+   border-radius: 22px;
+   float: left;
+
+}
