@@ -1,32 +1,33 @@
 function checkPoint() {
 
-var questionOne = document.triviaQuiz.value;
-var questionTwo = document.triviaQuiz.value;
-var questionThree = document.triviaQuiz.value;
-var questionFour = document.triviaQuiz.value;
+var answerOne = document.triviaQuiz.questionOne.value;
+var answerTwo = document.triviaQuiz.questionTwo.value;
+var answerThree = document.triviaQuiz.questionThree.value;
+var answerFour = document.triviaQuiz.questionFour.value;
+var answerFour = document.triviaQuiz.questionFive.value;
 var correctAnswer = 0;
 
-    if (questionOne == "True"){
+    if (answerOne == "True"){
         correctAnswer++;
     }
-    if (questionTwo == "True"){
+    if (answerTwo == "True"){
         correctAnswer++;
     }
-    if (questionThree == "False"){
+    if (answerThree == "False"){
         correctAnswer++;
     }
-    if (questionFour == "False"){
+    if (answerFour == "False"){
         correctAnswer++;
     }
 
 var popMessage = ["Great job! You did so well!", "May need some practice!"];
 
-var gifsWinLOse = ["assets/images/youWin.gif", "assets/images/youLost.gif"];
+var gifsWinLose = ["assets/images/youWin.gif", "assets/images/youLost.gif"];
 
 //NOT SURE HOW TO SET THIS UP
 var scoredQuiz;
     if (correctAnswer <1){
-        scoredQuiz = 2;
+        scoredQuiz = 1;
     }
     if (correctAnswer > 0 && correctAnswer <2){
         scoredQuiz = 0;
@@ -38,19 +39,20 @@ var scoredQuiz;
 
     document.getElementById("answerConfirms").innerHTML= "You got it " + correctAnswer + " correct!";
 
-    document.getElementById("gifsWinLose").src = gifsWinLOse[scoredQuiz];
+    document.getElementById("gifsWinLose").src = gifsWinLose[scoredQuiz];
     $("#finButton").attr("disabled", true);
 
 }
 
 
 var quizTimer;
+
 $(document).ready(function(){
-    $(".container").hide();
+    $("#nhuQuiz").hide();
 
     $(".beginButton").click(function(){
-        clearInterval(gameTimer);
-      $(".container").show();
+        clearInterval(quizTimer);
+      $("#nhuQuiz").show();
       $("#finButton").attr("disabled", false);
       var counter = 20;
       document.getElementsByClassName("answerBox").checked = false;
@@ -60,15 +62,14 @@ $(document).ready(function(){
         function timer() {
             counter=counter-1;
             if (counter <= 0) {
-                clearInterval(gameTimer);
+                clearInterval(quizTimer);
                 alert("TIMES UP!");
-                $(".container").hide();
+                $("#nhuQuiz").hide();
                 location.reload();
             }
             $("#timer").text(counter);    
         }
         
-
         timer();
     });
 });
