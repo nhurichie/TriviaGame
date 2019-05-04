@@ -9,41 +9,44 @@
     <link href="https://fonts.googleapis.com/css?family=Gugi|Raleway" rel="stylesheet"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
-
+<!-- PLACE ALL NECESSARY SCRIPTS (Bootstrap, JQuery)-->
 </head>
 <body>
     <h1>TOTALLY TRIVIAL TRIVIA</h1><br><br>
-    <h2>YOU HAVE 20 SECONDS TO ANSWER 5 QUESTIONS. GOOD LUCK!<br>
-        <button class="beginButton">Begin</button></h2>
-    
+
+    <h2>
+        YOU HAVE 20 SECONDS TO ANSWER 5 QUESTIONS. GOOD LUCK!<br>
+        <button id="beginButton" onclick="startGame();">Begin</button>
+        <span id="timer"></span>
+    </h2>
 
     <form id="nhuQuiz" name="triviaQuiz">
         <p>
              Is Mercury the first planet in the Solar System?
         </p>
-            <input id="answerBox" type="radio" name="questionOne" value="True">True<br>
-            <input id="answerBox" type="radio" name="questionOne" value="False">False<br>
+            <input class="answerBox" type="radio" name="questionOne" value="True">True<br>
+            <input class="answerBox" type="radio" name="questionOne" value="False">False<br>
 
             <p>
             Is the Sun at the center of the Solar System?
         </p>
-            <input id="answerBox" type="radio" name="questionTwo" value="True">True<br>
-            <input id="answerBox" type="radio" name="questionTwo" value="False">False<br>
+            <input class="answerBox" type="radio" name="questionTwo" value="True">True<br>
+            <input class="answerBox" type="radio" name="questionTwo" value="False">False<br>
         <p>
             Pluto is considered a planet?
         </p>
-            <input id="answerBox" type="radio" name="questionThree" value="True">True<br>
-            <input id="answerBox" type="radio" name="questionThree" value="False">False<br>
+            <input class="answerBox" type="radio" name="questionThree" value="True">True<br>
+            <input class="answerBox" type="radio" name="questionThree" value="False">False<br>
         <p>
             Is Earth the fourth planet from the Sun?
         </p>
-            <input id="answerBox" type="radio" name="questionFour" value="True">True<br>
-            <input id="answerBox" type="radio" name="questionFour" value="False">False<br>
+            <input class="answerBox" type="radio" name="questionFour" value="True">True<br>
+            <input class="answerBox" type="radio" name="questionFour" value="False">False<br>
         <p>
             Jupitar is right next to Earth after Mars?
         </p>
-            <input id="answerBox" type="radio" name="questionFive" value="True">True<br>
-            <input id="answerBox" type="radio" name="questionFive" value="False">False<br>
+            <input class="answerBox" type="radio" name="questionFive" value="True">True<br>
+            <input class="answerBox" type="radio" name="questionFive" value="False">False<br>
 
     <input id="finButton" type="button" value="DONE!" onclick="checkPoint();">
     </form>

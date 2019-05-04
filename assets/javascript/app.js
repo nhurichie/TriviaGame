@@ -1,11 +1,18 @@
-function checkPoint() {
+var gameTimer;
+var counter;
 
-var answerOne = document.triviaQuiz.questionOne.value;
-var answerTwo = document.triviaQuiz.questionTwo.value;
-var answerThree = document.triviaQuiz.questionThree.value;
-var answerFour = document.triviaQuiz.questionFour.value;
-var answerFive = document.triviaQuiz.questionFive.value;
-var correctAnswer = 0;
+function checkPoint() {
+    clearInterval(gameTimer);
+    var answerOne = document.triviaQuiz.questionOne.value;
+    var answerTwo = document.triviaQuiz.questionTwo.value;
+    var answerThree = document.triviaQuiz.questionThree.value;
+    var answerFour = document.triviaQuiz.questionFour.value;
+    var answerFive = document.triviaQuiz.questionFive.value;
+    var correctAnswer = 0;
+
+   // console.log($("input[name = 'questionOne']:checked").val());
+
+ 
 
     if (answerOne == "True"){
         correctAnswer++;
@@ -23,17 +30,17 @@ var correctAnswer = 0;
         correctAnswer++;
     }
 
-var popMessage = ["Great job! You did so well!", "May need some practice!"];
+    var popMessage = ["Great job! You did so well!", "May need some practice!"];
 
-var gifWinLose = ["assets/images/youWin.gif", "/assets/images/youLost.gif"];
+    var gifWinLose = ["assets/images/youWin.gif", "assets/images/youLost.gif"];
 
-var scoredQuiz;
-    if (correctAnswer <3) {
-        scoredQuiz = 2;
+    var scoredQuiz;
+        if (correctAnswer <3) {
+            scoredQuiz = 1;
+        }
+        else {
+            scoredQuiz = 0;
     }
-    else {
-        scoredQuiz = 0;
-}
 
     document.getElementById("checkAnswers").style.visibility="visible";
 
@@ -44,35 +51,31 @@ var scoredQuiz;
     document.getElementById("gifWinLose").src = gifWinLose[scoredQuiz];
 
     $("#finButton").attr("disabled", true);
-
 }
 
+function startGame(){
+    clearInterval(gameTimer);
+    $("#nhuQuiz").show();
+    $("#beginButton").attr("disabled", true);
+    // document.getElementsByClassName("answerBox").checked = false;
+    counter = 20;
 
-var quizTimer;
+    gameTimer = setInterval(timer, 1000);
+}
+
+function timer() {
+    counter = counter - 1;
+    if (counter <= 0) {
+        clearInterval(gameTimer);
+        alert("TIMES UP!");
+        $("#nhuQuiz").hide(); 
+        location.reload();
+    }
+
+    $("#timer").text(counter);    
+} 
 
 $(document).ready(function(){
     $("#nhuQuiz").hide();
 
-    $(".beginButton").click(function(){
-        clearInterval(quizTimer);
-      $("#nhuQuiz").show();
-      $("#finButton").attr("disabled", false);
-      var counter = 20;
-      document.getElementsByClassName("answerBox").checked = false;
-
-      gameTimer = setInterval(timer, 1000);
-
-        function timer() {
-            counter=counter-1;
-            if (counter <= 0) {
-                clearInterval(quizTimer);
-                alert("TIMES UP!");
-                $("#nhuQuiz").hide();
-                location.reload();
-            }
-            $("#timer").text(counter);    
-        }
-        
-        timer();
-    });
 });
